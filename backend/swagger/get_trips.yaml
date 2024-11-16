@@ -1,0 +1,44 @@
+summary: Получить поездки
+description: Получить список поездок для пользователя с указанным тегом Telegram
+parameters:
+  - in: query
+    name: tg_tag
+    required: true
+    schema:
+      type: string
+      description: Тег Telegram пользователя
+responses:
+  200:
+    description: Список поездок
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              trip_id:
+                type: integer
+                description: ID поездки
+              start_date:
+                type: string
+                description: Дата начала поездки
+              end_date:
+                type: string
+                description: Дата окончания поездки
+              destination:
+                type: string
+                description: Место назначения
+              status:
+                type: string
+                description: Статус поездки
+  400:
+    description: Ошибка получения поездок
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Описание ошибки

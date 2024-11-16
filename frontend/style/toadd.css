@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Шапка */
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0px 10px;
+}
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 220, 0);
+    z-index: 2;
+}
+.header_body {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+}
+.header_logo {
+    position: absolute;
+    height: 100%;
+    width: 20vw;
+    z-index: 3;
+    background-image: url("Капибара\ svg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.title {
+    top: 0;
+    left: 25vw;
+    position: absolute;
+    line-height: 10vh;
+
+    font-size: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    letter-spacing: 0.5vh;
+    z-index: 3;
+}
+
+.header_list {
+    display: flex;
+    position: relative;
+    margin-top: 5vh;
+    z-index: 2;
+}
+.header_list li{
+    list-style: none;
+    text-align: center;
+    margin: 0px 0px 0px 20px;
+}
+.header_link {
+    text-transform: uppercase;
+    font-size: 2.4vh;
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: black;
+}
+
+.header_burger {
+    display: block;
+    position: absolute;
+    right: 0;
+    
+    width: 30px;
+    height: 20px;
+    z-index: 3;
+}
+.header_burger span {
+    position: absolute;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+}
+
+.header_burger::before,
+.header_burger::after {
+    content: '';
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transition: all 0.3s ease 0s;
+}
+.header_burger::before {
+    top: 0; 
+}
+.header_burger::after  {
+    bottom: 0;
+}
+
+.header_burger.active span {
+    transform: scale(0);
+}
+
+.header_burger.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.header_burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+}
+
+.header_menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 70px 10px 20px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.header_menu.active {
+    top: 0;
+}
+
+.header_list {
+    display: block;
+}
+
+.header_list li {
+    margin: 0px 0px 20px 0px;
+}
+
+.body.lock {
+    overflow: hidden;
+}
+
+/* Классы - маркеры */
+.check {}
+
+body {
+    position: relative;
+}
+
+button {
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    &:active {
+        opacity: 0.7;
+    }
+}
+
+.block_input_button {
+    display: block;
+    margin: auto;
+    position: relative;
+    height: calc(12vh + 3px);
+    width: 95%;
+    margin: 10px;
+}
+
+.block_button {
+    position: absolute;
+    width: 65%;
+    height: 6vh;
+    top: 0;
+
+    border: none;
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(255, 220, 0);
+}
+
+.input_class {
+    position: absolute;
+    width: 95%;
+    height: 6vh;
+    bottom: 0;
+    padding-left: 10px;
+    margin-top: 2px;
+    border: 1px solid white;
+    border-radius: 4px; 
+
+    font-size: 2vh;
+    border: none;
+
+    border-radius: 0px 0px 5px 5px;
+    border: 3px rgb(255, 220, 0) solid;
+
+    &:focus {
+       outline: none; 
+    }
+}
+
+.who_pay_data_block {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 6vh;
+}
+
+.who_pay_name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% - 10px);
+    height: 100%;
+
+    padding-left: 10px;
+    border: 3px rgb(255, 220, 0) solid;
+    border-radius: 0px 0px 0px 5px;
+    font-size: 2vh;
+
+    &:focus {
+        outline: none; 
+    }
+}
+
+.who_pay_summ {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 10px);
+    height: 100%;
+
+    padding-left: 10px;
+    border: 3px rgb(255, 220, 0) solid;
+    border-radius: 0px 0px 5px 0px;
+    font-size: 2vh;
+
+    &:focus {
+        outline: none; 
+    }
+}
+
+.replace_block {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    position: relative;
+    width: 95%;
+    height: 6vh;
+}
+
+.replace_button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 220, 0);
+    border-radius: 10px;
+    border: none;
+}
+
+.cancel_button {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: red;
+}
+
+.general_block {
+    position: relative; 
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 95%;
+    min-height: 6vh;
+    height: auto;
+}
+
+.general_button {
+    display: block;
+    margin: auto;
+    margin-top: 2vh;
+    width: 100%;
+    height: 6vh;
+
+    background-color: rgb(255, 220, 0);
+    border-radius: 10px;
+    border: none;
+}
+
+.style_person_block {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 7vh;
+    margin-top: 1vh;
+}
+
+.style_person_name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(50% - 10px);
+    height: calc(100% - 3px);
+
+    padding-left: 10px;
+    border: 3px solid rgb(255, 220, 0);
+    border-radius: 10px 0px 0px 10px;
+    font-size: 2vh;
+
+    &:focus {
+        outline: none; 
+    }
+}
+
+.style_person_summ {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 10px);
+    height: calc(100% - 3px);
+
+    padding-left: 10px;
+    border: 3px rgb(255, 220, 0) solid; 
+    border-radius: 0px 10px 10px 0px;
+    font-size: 2vh;
+
+    &:focus {
+        outline: none; 
+     }
+}
+
+.style_person_summ_check {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(50% - 10px);
+    height: calc(100% - 3px);
+
+    padding-left: 10px;
+    border: 3px rgb(255, 220, 0) solid; 
+    border-radius: 0px 10px 10px 0px;
+    font-size: 2vh;
+
+    &:focus {
+        outline: none; 
+     }
+}
+
+.send_button {
+    display: block;
+    margin: auto;
+    margin-top: 2vh;
+    width: 97%;
+    height: 8vh;
+
+    background-color: rgb(255, 220, 0);
+    border-radius: 10px;
+    border: 5px rgb(240, 180, 0) solid;
+}
+.block_trips {
+    margin-top: 2vh;
+}
+
+/* Блок с popup */
+.main_popup {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+
+    background-color: rgba(0,0,0,0.4);
+}
+
+.none_for_popup {
+    display: none;
+}
+
+.popup_body {
+    position: relative;
+
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+    height: auto;
+    min-height: 40vh;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.55);
+    padding: 15px;
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content_after_save {
+    margin-top: 11vh;
+    text-align: center;
+
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup_name {
+    top: 0;
+    height: 3vh;
+    text-align: center;
+
+    p {
+        font-size: 2.7vh;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+}
+
+.galochka {
+    display: block;
+    margin: auto;
+    width: 5vh;
+    height: 5vh;
+    z-index: 10;
+
+    background-image: url('galochka.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}

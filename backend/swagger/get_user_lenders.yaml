@@ -1,0 +1,32 @@
+summary: Получить список кредиторов для пользователя
+description: Возвращает список кредиторов для указанного должника.
+parameters:
+  - in: query
+    name: debtor_tg
+    required: true
+    description: Телеграм-имя должника
+    schema:
+      type: string
+responses:
+  '200':
+    description: Список кредиторов был успешно возвращен
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              lender_tg:
+                type: string
+                description: Телеграм-имя кредитора
+              amount:
+                type: number
+                description: Сумма долга
+              description:
+                type: string
+                description: Описание долга
+  '400':
+    description: Некорректные параметры запроса
+  '404':
+    description: Кредиторы не найден

@@ -1,0 +1,41 @@
+summary: Получить долги поездки
+description: Получить список долгов поездки с указанным ID
+parameters:
+  - in: query
+    name: trip_id
+    required: true
+    schema:
+      type: integer
+      description: ID поездки
+responses:
+  200:
+    description: Список долгов поездки
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              debtor_tg:
+                type: string
+                description: Тег Telegram должника
+              debt_amount:
+                type: number
+                description: Сумма долга
+              lender_tg:
+                type: string
+                description: Тег Telegram кредитора
+              event_name:
+                type: string
+                description: Название события
+  400:
+    description: Ошибка получения списка долгов поездки
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Описание ошибки

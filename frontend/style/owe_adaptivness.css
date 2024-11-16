@@ -1,0 +1,18 @@
+@media (max-width: 575px) { /* csss adaptive styles for page*/ 
+    .title {
+        font-size: 10px;
+    }
+
+}
+
+@media (min-width: 760px){
+    
+}
+
+/* lg (>=992 и <=1199) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    
+}
+@media (min-width: 1200px) { 
+    
+}

@@ -1,0 +1,41 @@
+summary: Получить должников пользователя в поездке
+description: Получить список должников пользователя в указанной поездке
+parameters:
+  - in: query
+    name: lender_tg
+    required: true
+    schema:
+      type: string
+      description: Тег Telegram пользователя-владельца
+  - in: query
+    name: trip_id
+    required: true
+    schema:
+      type: integer
+      description: ID поездки
+responses:
+  200:
+    description: Список должников пользователя в поездке
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              debtor_tg:
+                type: string
+                description: Тег Telegram должника
+              debt_amount:
+                type: number
+                description: Сумма долга
+  400:
+    description: Ошибка получения списка должников пользователя в поездке
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Описание ошибки

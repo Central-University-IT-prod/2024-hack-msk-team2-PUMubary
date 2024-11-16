@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-size: 2.5vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    &:active {
+        opacity: 0.7;
+    }
+}
+
+/* Шапка */
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0px 10px;
+}
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 220, 0);
+    z-index: 2;
+}
+.header_body {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+}
+.header_logo {
+    position: absolute;
+    height: 100%;
+    width: 20vw;
+    z-index: 3;
+    background-image: url("Капибара\ svg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.title {
+    top: 0;
+    left: 25vw;
+    position: absolute;
+    line-height: 10vh;
+
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    letter-spacing: 0.5vh;
+    z-index: 3;
+}
+
+.header_list {
+    display: flex;
+    position: relative;
+    margin-top: 5vh;
+    z-index: 2;
+}
+.header_list li{
+    list-style: none;
+    text-align: center;
+    margin: 0px 0px 0px 20px;
+}
+.header_link {
+    text-transform: uppercase;
+    font-size: 2.4vh;
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: black;
+}
+
+.header_burger {
+    display: block;
+    position: absolute;
+    right: 0;
+    
+    width: 30px;
+    height: 20px;
+    z-index: 3;
+}
+.header_burger span {
+    position: absolute;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+}
+
+.header_burger::before,
+.header_burger::after {
+    content: '';
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transition: all 0.3s ease 0s;
+}
+.header_burger::before {
+    top: 0; 
+}
+.header_burger::after  {
+    bottom: 0;
+}
+
+.header_burger.active span {
+    transform: scale(0);
+}
+
+.header_burger.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.header_burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+}
+
+.header_menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 70px 10px 20px 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.header_menu.active {
+    top: 0;
+}
+
+.header_list {
+    display: block;
+}
+
+.header_list li {
+    margin: 0px 0px 20px 0px;
+}
+
+.body.lock {
+    overflow: hidden;
+}
+
+/* main */
+
+.main_button {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    height: 10vh;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3.5vh;
+
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgb(255, 220, 0);
+}
+
+.animation {
+    background-color: rgb(255, 220, 0);
+    transition: background-color 0.4s;
+}
+
+footer {
+    position: absolute;
+    top: 90vh;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(255, 220, 0);
+}
+.User_card_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card{
+    text-align: center;
+    margin: 10%;
+    font-size: 32px;
+}
+h2{
+    text-align: center;
+    font-size: 45px;
+}
+.pay_button{ 
+    background-color: rgb(255, 220, 0);
+    border-radius: 10px;
+    font-size: 32px;
+    border: 2px solid white;
+    width: 150px;
+    height: 50px;
+    margin-top: 4px;
+    margin-left: 24%;
+    @media screen and (min-width:350px) {
+      margin-left: 25%;
+      
+    }
+    @media screen and (min-width:395px) {
+      margin-left: 30%;
+      
+    }
+    @media screen and (min-width:528px) {
+      margin-left: 35%;
+
+    }
+    @media screen and (min-width:680px) {
+      margin-left: 40%;
+      
+    }
+  }
+
+.dropbtn {
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  margin-top: 15%;
+  margin-right: 25px;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+background-color: #9b4117;
+}
+
+.dropdown {
+float: right;
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f1f1f1;
+min-width: 160px;
+overflow: auto;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+right: 0;
+z-index: 1;
+}
+
+.dropdown-content a {
+color: black;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+.name_of_user{
+  font-size: 42px;
+  font-weight: 700;
+  background-color: rgb(255, 220, 0);
+  border:0px;
+  border-radius: 10%;
+  width: 150px;
+  height: 70px;
+}
+.close_pay_button{
+  background-color: #aba8a8;
+  border-radius: 10%;
+  border: 0px;
+  width: 70px;
+  height: 35px;
+}
+.pay_button_new{
+  background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 32px;
+    color: white;
+    border: 2px solid white;
+    width: 150px;
+    height: 50px;
+    margin-top: 4px;
+    margin-left: 24%;
+    @media screen and (min-width:350px) {
+      margin-left: 25%;
+      
+    }
+    @media screen and (min-width:395px) {
+      margin-left: 30%;
+      
+    }
+    @media screen and (min-width:528px) {
+      margin-left: 35%;
+
+    }
+    @media screen and (min-width:680px) {
+      margin-left: 40%;
+      
+    }
+  }
+
+/* Классы для карточек */
+.block_input_button {
+    display: block;
+    margin: auto;
+    position: relative;
+    width: 95%;
+    height: 12vh; 
+    margin: 10px;
+    margin-bottom: 2vh;
+}
+
+.block_button {
+    position: absolute;
+    width: 65%;
+    height: 6vh;
+    top: 0;
+
+    border: none;
+    border-radius: 10px 10px 0px 0px;
+    background-color: rgb(255, 220, 0);
+}
+
+.trip_buttons_block {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 6vh;
+}
+
+.trip_mini_button {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+    border: none;
+    background-color: rgb(120, 190, 110);
+}
+
+/* Блок с popup */
+.main_popup {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+
+    background-color: rgba(0,0,0,0.4);
+}
+
+.none_for_popup {
+    display: none;
+}
+
+.popup_body {
+    position: relative;
+
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+    height: auto;
+    min-height: 40vh;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.55);
+    padding: 15px;
+  
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.content_after_save {
+    margin-top: 11vh;
+    text-align: center;
+
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.popup_name {
+    top: 0;
+    height: 3vh;
+    text-align: center;
+    margin-bottom: 2vh;
+
+    p {
+        font-size: 2.7vh;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+}
+
+.popup_info_block {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 2vh;
+}

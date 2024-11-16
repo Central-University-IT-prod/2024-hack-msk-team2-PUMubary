@@ -1,0 +1,55 @@
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: {{sensitive_data}}
+      MYSQL_DATABASE: {{sensitive_data}}
+      MYSQL_USER: {{sensitive_data}}
+      MYSQL_PASSWORD: {{sensitive_data}}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - webnet
+    healthcheck:
+      test: [ "CMD-SHELL", "mysqladmin ping -u {{sensitive_data}} -p'{{sensitive_data}}'" ]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: mysql+pymysql://{{sensitive_data}}:{{sensitive_data}}@db/my_database
+    ports:
+      - "5000:5000"
+    networks:
+      - webnet
+    env_file:
+      - .env
+      
+  
+  # frontend:
+  #   build: ./frontend
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - webnet
+  #   env_file:
+  #     - .env
+  
+
+
+volumes:
+  db_data:
+
+networks:
+  webnet:
+    driver: bridge

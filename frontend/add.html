@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новое мероприятие</title>
+    <link rel="stylesheet" href="style/toadd.css">
+    <linK rel="icon" href="media/Капибара svg.svg">
+</head>
+<body>
+    <header class="header">
+      <div class="container">
+          <div class="header_body">
+              <div class="header_logo"></div>
+              <div class="title">Новое мероприятие</div>
+              <div class="header_burger">
+                  <span></span>
+              </div>
+              <nav class="header_menu">
+                  <ul class="header_list">
+                      <li>
+                          <a href="index.html" class="header_link">Главная</a>
+                      </li>
+                      <li>
+                          <a href="add.html" class="header_link">Добавить мероприятие</a>
+                      </li>
+                      <li>
+                          <a href="groups.html" class="header_link">Доступные поездки</a>
+                      </li>
+                      <li>
+                          <a href="owe.html" class="header_link">Ваши долги</a>
+                      </li>
+                      <li>
+                          <a href="debtors.html" class="header_link">Долги вам</a>
+                      </li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+    </header>
+    <main style="margin-top: 11vh;">
+        <div class="block_input_button">
+            <input type="text" placeholder="Название" id="event" class="input_class" onchange="get_info(1)">
+                <button class="block_button" onclick=" get_info(1)">
+                    Добавить название
+                </button>
+        </div>
+        <div class="block_input_button">
+            <input type="text" placeholder="Общая сумма" id="summ" class="input_class"onchange="get_info(2)">
+                <button class="block_button" onclick=" get_info(2)">
+                    Добавить сумму
+                </button>
+        </div>
+
+        <div class="block_input_button" style="height: 12vh; margin-bottom: 2vh;">
+            <button class="block_button" onclick=" get_info(3)">
+              Добавить оплатившего
+            </button>
+            <div class="who_pay_data_block">
+              <input type="text" class="who_pay_name" value="@" id="name_person_who_pay" onchange="get_info(3)">
+              <input type="text" class="who_pay_summ check" placeholder="Сумма" id="summ_person_who_pay">
+            </div>
+        </div>
+
+        <div class="general_block" id="add_person">
+            <button id="main_persons_button" class="general_button" onclick=" add_person()">
+                Добавить участника платежа
+            </button>
+        </div>
+    </main>
+
+    <!-- Блок с popup -->
+
+    <div class="main_popup none_for_popup" id="papa_popup">
+      <div class="popup_body">
+        <div class="popup_name">
+          <p>Куда добавить мероприятие</p>
+        </div>
+        <div class="popup_content" id="all_popup_content">
+          <button id="Button_for_save" class="general_button" style="font-size: 2vh; height: 5vh; margin-top: 5vh;" onclick=" add_single_event()">
+            Добавить как отдельное мероприятие
+          </button>
+          <div class="block_trips">
+            <h3>Доступные поездки</h3>
+            <div id="trips">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts/foradd.js"></script>
+    <script>
+        /* Когда пользователь нажимает на кнопку, переключаться раскрывает содержимое */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Закрыть раскрывающийся список, если пользователь щелкнет за его пределами.
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+</body>
+</html>

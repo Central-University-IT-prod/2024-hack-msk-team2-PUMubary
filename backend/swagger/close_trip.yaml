@@ -1,0 +1,40 @@
+summary: Закрыть поездку
+description: Закрывает поездку с указанным ID
+parameters:
+  - in: query
+    name: trip_id
+    description: ID поездки для закрытия
+    required: true
+    schema:
+      type: string
+responses:
+  200:
+    description: Поездка закрыта успешно
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Сообщение об успехе
+  400:
+    description: Недопустимый запрос
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Сообщение об ошибке
+  500:
+    description: Внутренняя ошибка сервера
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Сообщение об ошибке

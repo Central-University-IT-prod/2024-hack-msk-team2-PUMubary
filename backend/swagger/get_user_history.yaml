@@ -1,0 +1,31 @@
+summary: Получить историю пользователя
+description: Получить историю транзакций пользователя
+parameters:
+  - in: query
+    name: lender_tg
+    required: true
+    schema:
+      type: string
+  - in: query
+    name: debtor_tg
+    required: true
+    schema:
+      type: string
+responses:
+  200:
+    description: История транзакций
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              date:
+                type: string
+              amount:
+                type: number
+              description:
+                type: string

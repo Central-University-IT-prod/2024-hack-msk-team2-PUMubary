@@ -1,0 +1,29 @@
+summary: Получить долги пользователя
+description: Возвращает список долгов для конкретного пользователя
+parameters:
+  - name: lender_tg
+    in: query
+    description: Telegram ID кредитора
+    required: true
+    schema:
+      type: string
+responses:
+  200:
+    description: Список долгов пользователя
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              debt_id:
+                type: integer
+              amount:
+                type: number
+              due_date:
+                type: string
+  400:
+    description: Ошибка запроса
+  404:
+    description: Долги не найдены

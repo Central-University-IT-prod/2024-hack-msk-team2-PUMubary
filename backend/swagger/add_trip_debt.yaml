@@ -1,0 +1,48 @@
+summary: Добавить долг в поездку
+description: Добавить долг пользователя-должника в указанную поездку
+parameters:
+  - in: query
+    name: lender_tg
+    required: true
+    schema:
+      type: string
+      description: Тег Telegram пользователя-владельца
+  - in: query
+    name: debtors_tg_debpt_dict
+    required: true
+    schema:
+      type: object
+      description: Словарь, где ключ - тег Telegram пользователя-должника, а значение - сумма долга
+  - in: query
+    name: trip_id
+    required: true
+    schema:
+      type: integer
+      description: ID поездки
+  - in: query
+    name: event_name
+    required: true
+    schema:
+      type: string
+      description: Название события
+responses:
+  200:
+    description: Долг добавлен в поездку
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            result:
+              type: boolean
+              description: Результат добавления долга
+  400:
+    description: Ошибка добавления долга в поездку
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            error:
+              type: string
+              description: Описание ошибки
